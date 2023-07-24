@@ -1,0 +1,142 @@
+
+Microsoft Windows [Version 10.0.19045.3086]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\Nikhil>cd..
+
+C:\Users>cd..
+
+C:\>cd sqlite
+
+C:\sqlite>sqlite3 22bca46.db
+NEXT TIME WRITE THIS  ATTACH DATABASE'22BCA46.DB' IN THE SQLITE3 ARROW
+	
+sqlite> CREATE TABLE EMPYY46
+   ...> (
+(x1...>   EID TEXT,
+(x1...>   ENAME TEXT,
+(x1...>   DEPT TEXT,
+(x1...>   BASIC TEXT,
+(x1...>   BRANCH TEXT
+(x1...> );
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(1,'DIVYA','ACCOUNT',2000,'BARDOLI');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(2,'PRIYA','IT',4000,'NAVSARI');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(3,'HARSHA','HR',2000,'BABEN');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(4,'KAVYA','INVANTORY',5000,'BHARUCH');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(5,'PAYAL','ACCOUNT',9000,'VYARA');
+
+sqlite> .mode table
+sqlite> SELECT *FROM EMPYY46;
++-----+--------+-----------+-------+-----------+
+| EID | ENAME  |   DEPT    | BASIC |  BRANCH   |
++-----+--------+-----------+-------+-----------+
+| 1   | DIVYA  | ACCOUNT   | 2000  | BARDOLI   |
+| 2   | PRIYA  | IT        | 4000  | NAVSARI   |
+| 3   | HARSHA | HR        | 2000  | BABEN     |
+| 4   | KAVYA  | INVANTORY | 5000  | BHARUCH   | 
+| 5   | PAYAL  | ACCOUNT   | 9000  | VYARA     |
++-----+--------+-----------+-------+-----------+
+sqlite>		
+
+
+---------------------------------------------------------
+TUPLE :--
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(6,'KAVI','IT',6000,'MUMBAI');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(7,'RAJ','HR',7000,'SURAT');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(8,'AJAY','INVANTORY',6000,'MUMBAI');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(9,'CHAKU','ACCOUNT',5000,'DELHI');
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(10,'PRINCE','IT',6000,'CHENNAI');
+sqlite> SELECT *FROM EMPYY46;
++-----+--------------+-----------+-------+-----------+
+| EID |    ENAME     |   DEPT    | BASIC |  BRANCH   |
++-----+--------------+-----------+-------+-----------+
+| 1   | DIVYA        | ACCOUNT   | 5000  | BARDOLI   |
+| 2   | PRIYA        | IT        | 6000  | NAVSARI   |
+| 3   | HARSHA       | HR        | 7000  | BABEN     |
+| 4   | KAVYA        | INVANTORY | 5500  | BHARUCH   |
+| 5   | PAYAL        | ACCOUNT   | 6000  | VYARA     |
+| 6   | KAVI         | IT        | 6000  | KOLKATA   |
+| 7   | GEETA        | HR        | 75000 | SURAT     |
+| 8   | AJAY         | INVANTORY | 6000  | MUMBAI    |
+| 9   | CHAKU        | ACCOUNT   | 5000  | DELHI     |
+| 10  | PRINCE       | IT        | 6000  | CHENNAI   |
++-----+--------------+-----------+-------+-----------+
+---------------------------------------------------------
+USER INPUT:----
+sqlite> INSERT INTO EMPYY46
+   ...> VALUES(?,?,?,?,?);
+
+---------------------------------------------------------
+INCREMENT SALARY 10%%:--
+
+sqlite> UPDATE EMPYY46
+   ...> SET BASIC =BASIC*1.1
+   ...> WHERE BRANCH ='SURAT';
+sqlite> SELECT *FROM EMPYY46;
++-----+--------------+-----------+-------+-----------+
+| EID |    ENAME     |   DEPT    | BASIC |  BRANCH   |
++-----+--------------+-----------+-------+-----------+
+| 1   | DIVYA        | ACCOUNT   | 5000  | BARDOLI   |
+| 2   | PRIYA        | IT        | 6000  | NANSAR    |
+| 3   | HARSHA       | HR        | 7000  | BABEN     |
+| 4   | KAVYA        | INVANTORY | 5500  | BHARUCH   |
+| 5   | PAYAL        | ACCOUNT   | 6000  | VYARA     |
+| 6   | KAVI         | IT        | 6000  | KOLKATA   |
+| 7   | GEETA        | HR        | 8250.0| SURAT     |
+| 8   | AJAY         | INVANTORY | 6000  | MUMBAI    |
+| 9   | CHAKU        | ACCOUNT   | 5000  | DELHI     |
+| 10  | PRINCE       | IT        | 6000  | CHENNAI   |
++-----+--------------+-----------+-------+-----------+
+---------------------------------------------------------
+
+PRINT WHERE DEPT IS 'HR' AND 'IT':--
+
+sqlite>SELECT *FROM EMPYY46
+   ...>WHERE DEPT('IT','HR');
+
+--------------------------------------------------------
+Print records in sorting order of department.
+
+sqlite>SELECT *FROM EMPYY46
+   ...>ORDER BY DEPT;
+
+--------------------------------------------------------
+Print records where basic is >6000.
+
+sqlite>SELECT *FROM EMPYY46
+   ...>WHERE BASIC>6000;
+
+---------------------------------------------------------
+Print records whrere employee name second character is "R".
+
+sqlite>SELECT *FROM EMPYY46
+   ...>WHERE ENAME LIKR'_R%';
+
+---------------------------------------------------------
+ Grouping record of employee who are from "Account" and "Inventory".
+
+sqlite>SELECT *FROM EMPYY46
+   ...>WHERE DEPT  IN('ACCOUNT','INVANTORY')
+   ...>GROUP BY DEPT;
+
+---------------------------------------------------------
+
+Print all records based on branch name in descending order.
+
+sqlite>SELECT *FROM EMPYY46
+   ...>ORDER BY BRANCH DESC;
+
+
+
+
+
