@@ -1,0 +1,118 @@
+1.create table stud.
+
+-->create table stud
+(
+         id int primary key,
+         name varchar(10)
+);
+
+>create table stud_details.
+
+-->create table stud_details
+(
+         id int references stud(id)
+         city varchar(15),
+         mobileno int
+);
+
+2.Insert minimum 10 records in each table.
+
+-->insert into stud
+values(1,'selina');
+insert into stud
+values(2,'sreya');
+insert into stud
+values(3,'priya');
+insert into stud
+values(4,'ravi');
+insert into stud
+values(5,'krisha');
+insert into stud
+values(6,'raj');
+insert into stud
+values(7,'payal');
+insert into stud
+values(8,'pankaj');
+insert into stud
+values(9,'rutvik');
+insert into stud
+values(10,'tej');
+
+-->insert into stud_details
+values(1,'bardoli',5643784538);
+insert into stud_details
+values(2,'navsari',9457645308);
+insert into stud_details
+values(3,'vyara',6753478273);
+insert into stud_details
+values(4,'songadh',7685940345);
+insert into stud_details
+values(5,'mumbai',3454657687);
+insert into stud_details
+values(6,'bharuch',0986756453);
+insert into stud_details
+values(7,'vyara',8765647383);
+insert into stud_details
+values(8,'bardoli',5476857465);
+insert into stud_details
+values(9,'surat',5464874356);
+insert into stud_details
+values(10,'baben',5467974565);
+
+-->select * from stud;
+1|selina
+2|sreya
+3|priya
+4|ravi
+5|krisha
+6|raj
+7|payal
+8|pankaj
+9|rutvik
+10|tej
+
+-->select * from stud_details;
+1|bardoli|5643784538
+2|navsari|9457645308
+3|vyara|6753478273
+4|songadh|7685940345
+5|mumbai|3454657687
+6|bharuch|0986756453
+7|vyara|8765647383
+8|bardoli|5476857465
+9|surat|5464874356
+10|baben|5467974565
+
+3.Display whose student come from surat city.
+
+-->select * from stud_details
+where city='surat';
+9|surat|5464874356
+
+4.Displat student whose city name start with 'b'.
+
+select * from stud_details
+where city LIKE 'b%';
+1|bardoli|5643784538
+6|bharuch|0986756453
+8|bardoli|5476857465
+10|baben|5467974565
+
+
+5.Update mobile no who are coming from surat. 
+
+update stud_details
+set mobileno=93133286
+where city='bharuch';
+
+select * from stud_details;
+1|bardoli|5643784538
+2|navsari|9457645308
+3|vyara|6753478273
+4|songadh|7685940345
+5|mumbai|3454657687
+6|bharuch|93133286
+7|vyara|8765647383
+8|bardoli|5476857465
+9|surat|5464874356
+10|baben|5467974565
